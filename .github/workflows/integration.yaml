@@ -20,7 +20,7 @@ jobs:
         brew install mercurial fossil bazaar darcs git
         curl -fsSL --compressed https://git.io/cpm > cpm
         chmod +x cpm
-        ./cpm install --show-build-log-on-failure SVN::Core
+        ./cpm install --verbose SVN::Core
         echo "PERL5LIB=$PWD/local/perl5:$PERL5LIB" >> "$GITHUB_ENV"
     - name: test
       run: ./misc/author/integration_test.sh
