@@ -16,9 +16,11 @@ jobs:
     - name: install
       run: |
         GOBIN=$HOME/bin make install
+        echo "$HOME/bin" >> "$GITHUB_PATH"
         brew install mercurial fossil bazaar darcs git
         curl -fsSL --compressed https://git.io/cpm > cpm
         chmod +x cpm
         ./cpm install SVN::Core
+        echo "PERL5LIB=$PWD/local/perl5:$PERL5LIB" >> "$GITHUB_ENV"
     - name: test
-      run: PATH=$HOME/bin:$PATH ./misc/author/integration_test.sh
+      run: ./misc/author/integration_test.sh
