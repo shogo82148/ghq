@@ -17,7 +17,7 @@ jobs:
       run: |
         GOBIN=$HOME/bin make install
         echo "$HOME/bin" >> "$GITHUB_PATH"
-        brew install mercurial fossil bazaar darcs git
+        brew install mercurial fossil bazaar darcs git subversion
         curl -fsSL --compressed https://git.io/cpm > cpm
         chmod +x cpm
         ./cpm install --verbose SVN::Core
